@@ -1,113 +1,235 @@
-import Image from "next/image";
+"use client"
+
+import { useEffect, useState } from "react";
+import 'animate.css/animate.min.css';
+import { ParallaxBanner, ParallaxBannerLayer, ParallaxProvider } from "react-scroll-parallax";
+import { ParallaxLoopSection } from "./components/ParallaxLoopSection";
+import { PhotoInLeft } from "./components/PhotoInLeft";
+import { PhotoInParallax } from "./components/PhotoInParallax";
+
+
 
 export default function Home() {
+  const [showDivs, setShowDivs] = useState(false);
+  const [showDivsTwo, setShowDivsTwo] = useState(false);
+  const [changeName, setChangeName] = useState<number>(0);
+  const [photoModal, setPhotoModal] = useState<boolean>(false);
+  const [loopModal, setLoopModal] = useState<boolean>(false);
+  const [openModal,setOpenModal] = useState<boolean>(false);
+  const [currentPhoto,setCurrentPhoto] = useState<number | null>(null);
+  const changeNames = ['Amigos', 'Paixão', 'Carisma', 'Amor', 'Beleza', 'Vida', 'Saúde', 'Bem-Estar', 'Familia', 'Natureza'];
+  const changePhotoModal = ['landscape', 'landscape-one', 'landscape-two', 'landscape-three'];
+  const changeLoopModal = ['loop-one','loop-two','loop-three','loop-four','loop-five','loop-six','loop-seven','loop-eight','loop-nine','loop-ten'];
+  const changePhotos= ['woman', 'woman-two', 'smooke', 'photo-one', 'photo-two', 'photo-three', 'photo-lines'];
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if(changeName >= 0 && changeName < 9) {
+        setChangeName(changeName +1);
+      }else if(changeName === 9) {
+        setChangeName(0);
+      }      
+    },1000)
+  }, [changeName]);
+
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const referenceValue = 400;
+    const referenceTwoValue = 4700;
+    if (scrollTop > referenceValue) {
+      setShowDivs(true);
+    }
+    if (scrollTop > referenceTwoValue) {
+      setShowDivsTwo(true);
+    }
+  };
+
+  const handlePhotoModal = (number: number) => {
+    setCurrentPhoto(number);
+    setPhotoModal(true);
+    setOpenModal(true);
+  }
+
+  const handleCloseModal = () => {
+    setPhotoModal(false);
+    setLoopModal(false);
+    setOpenModal(false);
+  }
+
+  const handleNumberSelect = (number: number) => {
+    setLoopModal(true);
+    setCurrentPhoto(number);
+    setOpenModal(true);
+  }
+
+  const handleModalPlus = () => {
+    if(photoModal) {
+      setCurrentPhoto(prev => (prev === null || prev >= changePhotoModal.length - 1) ? 0 : prev + 1);
+    }
+    if(loopModal) {
+      setCurrentPhoto(prev => (prev === null || prev >= changeLoopModal.length - 1) ? 0 : prev + 1);
+    }
+  }
+  
+  const handleModalMinus = () => {
+    if (photoModal) {
+      setCurrentPhoto(prev => (prev === null || prev <= 0) ? changePhotoModal.length - 1 : prev - 1);
+    }
+    if (loopModal) {
+      setCurrentPhoto(prev => (prev === null || prev <= 0) ? changeLoopModal.length - 1 : prev - 1);
+    }
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+        <div className='flex flex-col'>
+          <div className="w-screen min-h-[85vh] bg-black flex justify-center items-end bg-fixed">
+            <div className={`w-[75%] h-[400px]  bg-${changePhotos[changeName]} bg-cover bg-no-repeat bg-center`}></div>
+          </div>
+    
+          <div className="flex w-screen h-[50vh] bg-white justify-cente relative z-[2]">
+            <h1 className="text-yellow-500 text-4xl"></h1>
+    
+            {showDivs && (
+              <div className="w-[100%] flex justify-center mt-8 ease-linear">
+                <PhotoInLeft/>
+              </div>
+            )}
+          </div>
+    
+          <div className="h-[600px] flex justify-between flex-col items-center bg-fixed lg:flex-row">
+            <div className="flex justify-center items-center flex-col w-[375px] h-[400px] lg:w-[400px]">
+              <div className="flex justify-end items-end w-full h-full">
+                <div className="w-[50%] h-[100%] bg-white bg-landscape-one bg-cover bg-no-repeat bg-center border-white hover:border-[1px]"
+                  onClick={() => handlePhotoModal(1)}></div>
+              </div>
+              <div className="flex justify-start items-start w-full h-full">
+                <video className="w-[50%] h-[100%] border-white hover:border-[1px]"
+                  src="https://cdn.pixabay.com/video/2023/09/21/181537-866999852_tiny.mp4"
+                  loop
+                  autoPlay
+                  muted
+                  onClick={() => handlePhotoModal(2)}/>
+              </div>
+            </div>
+    
+            <h1 className="font-black text-6xl w-[320px] text-center lg:text-6xl">{changeNames[changeName]}</h1>
+    
+            <div className="flex justify-center items-center flex-col w-[375px] h-[400px] lg:w-[400px]">
+              <div className="flex justify-start items-start w-full h-full">
+                <div className="w-[50%] h-[100%] bg-white bg-landscape-three bg-cover bg-no-repeat bg-center border-white hover:border-[1px]"
+                  onClick={() => handlePhotoModal(3)}></div>
+              </div>
+              
+              <div className="flex justify-end items-end w-full h-full">
+                <div className="w-[50%] h-[100%] bg-white bg-landscape bg-cover bg-no-repeat bg-center border-white hover:border-[1px]"
+                  onClick={() => handlePhotoModal(0)}></div>
+              </div>
+            </div>
+          </div>
+    
+          <div className="p-10 flex justify-center items-center flex-col">
+            <h2 className="text-[45px] border-white border-b-2 mb-8 font-bold lg:text-8xl">PhotArt</h2>
+            <p className="text-2xl text-center">Nos capturando momentos únicos e transformando-os em memórias eternas. Na nossa agência de fotografia, cada clique conta uma história e cada imagem transmite emoção. De retratos a paisagens, estamos aqui para revelar a beleza do mundo através das lentes. Deixe-nos contar a sua história através da magia da fotografia.</p>
+          </div>
+    
+          <PhotoInParallax/>
+
+          <div className="w-screen h-screen bg-[#f6f4ef] relative z-[3]">
+            <h1 className="text-gray-600 text-2xl mt-24 px-4 lg:text-6xl">Através das lentes, buscamos revelar a beleza oculta no cotidiano, transformando momentos simples em obras de arte.</h1>
+            <div className="flex flex-col justify-center items-start w-full h-full lg:flex-row">
+              <p className="w-full h-[80%] text-lg text-gray-500 p-4 mt-5 lg:text-xl lg:w-[32.5%] lg:h-[80%]">Nossas fotografias são mais do que simples registros visuais. são obras de arte que transcendem o comum, incorporando a tradição e um gosto refinado pelo belo. Assim como os designers inteligentes, esses fotógrafos têm o dom de transformar momentos ordinários em imagens extraordinárias, elevando a fotografia a um nível de excelência que cativa e inspira.</p>
+              
+              <ParallaxProvider>
+                <div className="flex justify-around items-center w-full h-full lg:w-[77.5%]">
+                  <div className="flex justify-center items-center w-[45%] h-full">
+                  
+                  <ParallaxBanner 
+                    style={{ width: '95%',height: '80%' }}
+                    layers={[{ image: 'https://cdn.pixabay.com/photo/2023/11/07/22/59/building-8373618_1280.jpg', speed: -25}]}                    
+                    className="aspect-[2/1] w-[95%] h-[80%]"
+                  />
+                  </div>
+                  
+                  <div className="flex flex-col justify-around items-start w-[45%] h-full">
+                  <ParallaxBanner style={{width: '100%', height: '45%'}}>
+                    <ParallaxBannerLayer speed={-20}>
+                      <video
+                        autoPlay
+                        muted
+                        src="https://cdn.pixabay.com/video/2023/08/31/178472-859955927_tiny.mp4"
+                        loop
+                      />
+                    </ParallaxBannerLayer>
+                  </ParallaxBanner>
+
+                  <ParallaxBanner style={{width: '100%', height: '55%', marginLeft: '40px'}}>
+                    <ParallaxBannerLayer speed={5}>
+                      <video
+                        className="w-[80%]"
+                        autoPlay
+                        muted
+                        src="https://cdn.pixabay.com/video/2022/07/24/125314-733046618_tiny.mp4"
+                        loop
+                      />
+                    </ParallaxBannerLayer>
+                  </ParallaxBanner>
+
+                    
+                  </div>
+                </div>
+              </ParallaxProvider>
+
+            </div>
+          </div>
+
+          <div className="w-screen h-screen bg-landScape-transiction bg-cover bg-no-repeat bg-center"></div>
+
+          <div className="w-scrren h-[400px] bg-[#f6f4ef] flex justify-center items-center flex-col">
+            {showDivsTwo &&
+              <>
+                <h2 className="text-[#4b5563] text-2xl border-white border-b-4 animate__animated 
+                  animate__bounceInLeft md:text-5xl">Pq escolher a PHOTOART?</h2>
+                <h5 className="text-[#6b7280] text-2xl border-white border-b-4 md:text-3xl">Pq aqui temos</h5>
+              </>
+            }
+            
+          </div>
+
+            <ParallaxLoopSection  onNumberSelect={handleNumberSelect}/>
+          
+          
+      </div>  
+
+      {openModal &&
+      <div className="fixed z-50 inset-0 overflow-hidden">
+        <div className={`w-screen h-screen bg-fixed animate__animated animate__backInLeft animate__fast bg-white relative z-[10]`}>
+          <div className="flex justify-between items-center w-full h-[10%]">
+            <div></div>
+            <div className="w-[40px] h-[40px] bg-black"></div>
+            <div className="w-[40px] h-[40px] bg-black" onClick={() => handleCloseModal()}></div>
+          </div>
+          <div className="flex justify-around items-center w-full h-[90%]">
+            <div className="w-[40px] h-[40px] bg-black" onClick={() => handleModalMinus()}></div>
+
+            {photoModal &&
+              <div className={` w-[80%] h-[90%] bg-${changePhotoModal[currentPhoto || 0]} bg-cover bg-no-repeat bg-center`}></div>
+            }
+            {loopModal &&
+              <div className={` w-[80%] h-[90%] bg-${changeLoopModal[currentPhoto || 0]} bg-cover bg-no-repeat bg-center`}></div>
+            }
+            
+            <div className="w-[40px] h-[40px] bg-black" onClick={(() => handleModalPlus())}></div>
+          </div>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+      
+      }
+    </>
+  )
 }
