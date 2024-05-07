@@ -27,7 +27,7 @@ const config: Config = {
         'parallax-one' : 'url("https://cdn.pixabay.com/photo/2023/11/07/22/59/building-8373618_1280.jpg")',
         'parallax-two' : 'url("https://cdn.pixabay.com/photo/2022/01/29/09/01/bird-6976834_1280.jpg")',
         'parallax-three' : 'url("https://cdn.pixabay.com/photo/2020/06/29/06/00/houseplant-5351570_640.jpg")',
-        'loop-one' : 'url("https://cdn.pixabay.com/photo/2023/07/31/17/06/couple-8161451_640.jpg"),',
+        'loop-one' : 'url("https://cdn.pixabay.com/photo/2023/07/31/17/06/couple-8161451_640.jpg")',
         'loop-two' : 'url("https://cdn.pixabay.com/photo/2020/02/11/10/24/sea-4839056_640.jpg")',
         'loop-three' : 'url("https://cdn.pixabay.com/photo/2024/01/06/15/26/ai-generated-8491587_640.jpg")',
         'loop-four' : 'url("https://cdn.pixabay.com/photo/2024/03/07/10/38/simba-8618301_640.jpg")',
@@ -37,6 +37,12 @@ const config: Config = {
         'loop-eight' : 'url("https://cdn.pixabay.com/photo/2023/10/24/21/15/nature-8339115_640.jpg")',
         'loop-nine' : 'url("https://cdn.pixabay.com/photo/2023/12/13/06/40/cat-8446390_640.jpg")',
         'loop-ten' : 'url("https://cdn.pixabay.com/photo/2023/08/15/14/13/harvest-8192037_640.jpg")',
+        'whatsapp' : 'url("https://cdn.pixabay.com/photo/2016/11/21/08/44/whatsapp-1844471_640.png")',
+        'instagram' : 'url("https://cdn.pixabay.com/photo/2016/11/18/11/16/instagram-1834010_640.png")',
+        'github' : 'url("https://cdn.pixabay.com/photo/2017/08/05/11/24/logo-2582757_1280.png")',
+        'linkedin' : 'url("https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_640.png")',
+
+
       },
       animation: {
         "loop-scroll" : 'loop-scroll 70s linear infinite',

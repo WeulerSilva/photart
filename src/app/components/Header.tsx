@@ -19,7 +19,6 @@ export const Header = () => {
                 {!menuToggle && 
                     <>
                         <Image src={'/images/logo.png'} alt="PhotArt logo" width={150} height={96} className="ml-6 pt-2"/>
-                        <div className="w-28 h-24 bg-green-700"></div>
                         <AiOutlineMenu className="w-14 h-24 mr-12 z-[2]" onClick={() => handleMenu()}/>
                     </>
                 }
@@ -29,9 +28,9 @@ export const Header = () => {
                         <div>
                             <ul className={`text-8xl flex flex-col h-screen justify-start space-y-10 pt-40 ${menuToggle ? 'animate__animated animate__tada' : 'animate-none'}
                             hover:animate-none`}>
-                                <li className="hover:border-b-2 hover:border-white">Home</li>
-                                <li>Contact</li>
-                                <li>about</li>
+                                <li className="hover:border-b-2 hover:border-white">Inicio</li>
+                                <li>Contatos</li>
+                                <li>Sobre Nos</li>
                             </ul>
                         </div>
                         <div className="text-6xl w-14 h-24 mr-12 pt-12" onClick={() => handleMenu()}>X</div>

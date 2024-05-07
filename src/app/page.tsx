@@ -6,12 +6,14 @@ import { ParallaxBanner, ParallaxBannerLayer, ParallaxProvider } from "react-scr
 import { ParallaxLoopSection } from "./components/ParallaxLoopSection";
 import { PhotoInLeft } from "./components/PhotoInLeft";
 import { PhotoInParallax } from "./components/PhotoInParallax";
+import { SocialMidiaDivs } from "./components/SocialMidiaDivs";
 
 
 
 export default function Home() {
   const [showDivs, setShowDivs] = useState(false);
   const [showDivsTwo, setShowDivsTwo] = useState(false);
+  const [showDivsThree, setShowDivsThree] = useState(false);
   const [changeName, setChangeName] = useState<number>(0);
   const [photoModal, setPhotoModal] = useState<boolean>(false);
   const [loopModal, setLoopModal] = useState<boolean>(false);
@@ -41,11 +43,15 @@ export default function Home() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const referenceValue = 400;
     const referenceTwoValue = 4700;
+    const referenceThree = 5950;
     if (scrollTop > referenceValue) {
       setShowDivs(true);
     }
     if (scrollTop > referenceTwoValue) {
       setShowDivsTwo(true);
+    }
+    if(scrollTop > referenceThree) {
+      setShowDivsThree(true);
     }
   };
 
@@ -201,7 +207,24 @@ export default function Home() {
             
           </div>
 
-            <ParallaxLoopSection  onNumberSelect={handleNumberSelect}/>
+        <ParallaxLoopSection  onNumberSelect={handleNumberSelect}/>
+
+        <div className="flex justify-start items-center w-screen h-[500px] bg-[#f6f4ef] flex-col">
+            <h1 className="text-[#4b5563] text-5xl text-center mt-10">Conheça Nossas Redes Socias<br/> ou <br/>Fale Conosco</h1>
+
+            {showDivsThree &&
+              <div className="flex justify-around items-center mt-10 w-screen h-[400px] animate__animated animate__backInLeft">
+               
+                    <SocialMidiaDivs image="bg-instagram" social="Instagram"/>
+                    <SocialMidiaDivs image="bg-whatsapp" social="WhatsApp"/>
+                    <SocialMidiaDivs image="bg-github" social="GitHub"/>
+                    <SocialMidiaDivs image="bg-linkedin" social="Linkldin"/>
+                </div>
+              }
+            
+            
+            
+        </div>
           
           
       </div>  
