@@ -108,7 +108,7 @@ export default function Home() {
             )}
           </div>
     
-          <div className="h-[600px] flex justify-between flex-col items-center bg-fixed lg:flex-row">
+          <div className="h-[600px] flex justify-between flex-col items-center bg-fixed lg:flex-row bg-black">
             <div className="flex justify-center items-center flex-col w-[375px] h-[400px] lg:w-[400px]">
               <div className="flex justify-end items-end w-full h-full">
                 <div className="w-[50%] h-[100%] bg-white bg-landscape-one bg-cover bg-no-repeat bg-center border-white hover:border-[1px]"
@@ -210,15 +210,16 @@ export default function Home() {
         <ParallaxLoopSection  onNumberSelect={handleNumberSelect}/>
 
         <div className="flex justify-start items-center w-screen h-[500px] bg-[#f6f4ef] flex-col">
-            <h1 className="text-[#4b5563] text-5xl text-center mt-10">Conheça Nossas Redes Socias<br/> ou <br/>Fale Conosco</h1>
+            <h1 className="text-[#4b5563] text-3xl text-center mt-10 sm:text-5xl">Conheça Nossas Redes Socias<br/> ou <br/>Fale Conosco</h1>
 
             {showDivsThree &&
-              <div className="flex justify-around items-center mt-10 w-screen h-[400px] animate__animated animate__backInLeft">
+              <div className="grid grid-cols-2 place-items-center mt-10 w-screen h-[400px] sm:flex sm:justify-around sm:items-center animate__animated animate__backInLeft">
                
-                    <SocialMidiaDivs image="bg-instagram" social="Instagram"/>
-                    <SocialMidiaDivs image="bg-whatsapp" social="WhatsApp"/>
-                    <SocialMidiaDivs image="bg-github" social="GitHub"/>
-                    <SocialMidiaDivs image="bg-linkedin" social="Linkldin"/>
+                    <SocialMidiaDivs image="bg-instagram" social="Instagram" link=""/>
+                    <SocialMidiaDivs image="bg-whatsapp" social="WhatsApp" link="https://wa.me/82996816140"/>
+                    <SocialMidiaDivs image="bg-github" social="GitHub" link="https://github.com/WeulerSilva"/>
+                    <SocialMidiaDivs image="bg-linkedin" social="Linkldin" link="https://www.linkedin.com/in/weuler-silva-b5887627a/"/>
+
                 </div>
               }
             
