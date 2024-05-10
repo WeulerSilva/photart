@@ -93,7 +93,7 @@ export default function Home() {
 
   return (
     <>
-        <div className='flex flex-col'>
+        <div className='flex flex-col overflow-hidden'>
           <div className="w-screen min-h-[85vh] bg-black flex justify-center items-end bg-fixed">
             <div className={`w-[75%] h-[400px]  bg-${changePhotos[changeName]} bg-cover bg-no-repeat bg-center`}></div>
           </div>
@@ -222,12 +222,12 @@ export default function Home() {
 
                 </div>
               }
-            
-            
-            
         </div>
           
-          
+          <div className="w-screen h-10 bg-gray-700">
+            <h1 className="text-center mt-5">I´m Weuler Silva and I Made This WebSite...</h1>
+          </div>
+
       </div>  
 
       {openModal &&
