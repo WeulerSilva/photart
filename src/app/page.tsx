@@ -97,14 +97,14 @@ export default function Home() {
   return (
     <>
         <div className='flex flex-col overflow-hidden' id="home">
-          <div className="w-screen min-h-[85vh] bg-black flex flex-col justify-center items-center bg-fixed">
+          <div className="w-screen min-h-[85vh] relative bg-black flex flex-col justify-center items-center bg-fixed">
             <div className={`w-[75%] h-[400px]  bg-${changePhotos[changeName]} bg-cover bg-no-repeat bg-center sm:h-[600px] 
             lg:bg-contain`} onClick={() => handlePhotoModal(4)}></div>
-            <h1 className="text-white uppercase text-4xl font-bold">Vamos descobrir pq somos a melhor opção para seu</h1>
+            <h1 className="absolute bottom-[-17px] text-white uppercase text-4xl font-bold">photart</h1>
           </div>
     
           <div className="flex w-screen h-[50vh] bg-white justify-cente relative z-[2]">
-            <h1 className="absolute flex w-screen justify-center text-black font-bold text-4xl">{changeNames[changeName]}</h1>
+            <h1 className="absolute flex w-screen justify-center uppercase top-[-22px] text-black font-bold text-4xl">photart</h1>
     
             {showDivs && (
               <div className="w-[100%] flex justify-center mt-8 ease-linear">
@@ -144,7 +144,7 @@ export default function Home() {
             </div>
           </div>
     
-          <div className="p-10 flex justify-center items-center flex-col text-white">
+          <div className="p-10 flex justify-center items-center flex-col text-white bg-black">
             <h2 className="text-[45px] border-white border-b-2 mb-8 font-bold lg:text-8xl">PhotArt</h2>
             <p className="text-2xl text-center">Nos capturando momentos únicos e transformando-os em memórias eternas. Na nossa agência de fotografia, cada clique conta uma história e cada imagem transmite emoção. De retratos a paisagens, estamos aqui para revelar a beleza do mundo através das lentes. Deixe-nos contar a sua história através da magia da fotografia.</p>
           </div>
