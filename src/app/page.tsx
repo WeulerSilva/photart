@@ -97,13 +97,14 @@ export default function Home() {
   return (
     <>
         <div className='flex flex-col overflow-hidden' id="home">
-          <div className="w-screen min-h-[85vh] bg-black flex justify-center items-end bg-fixed">
+          <div className="w-screen min-h-[85vh] bg-black flex flex-col justify-center items-center bg-fixed">
             <div className={`w-[75%] h-[400px]  bg-${changePhotos[changeName]} bg-cover bg-no-repeat bg-center sm:h-[600px] 
             lg:bg-contain`} onClick={() => handlePhotoModal(4)}></div>
+            <h1 className="text-white uppercase text-4xl font-bold">Vamos descobrir pq somos a melhor opção para seu</h1>
           </div>
     
           <div className="flex w-screen h-[50vh] bg-white justify-cente relative z-[2]">
-            <h1 className="text-yellow-500 text-4xl"></h1>
+            <h1 className="absolute flex w-screen justify-center text-black font-bold text-4xl">{changeNames[changeName]}</h1>
     
             {showDivs && (
               <div className="w-[100%] flex justify-center mt-8 ease-linear">
