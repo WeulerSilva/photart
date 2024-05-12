@@ -254,7 +254,7 @@ export default function Home() {
               <Image src={'/images/logo.png'} alt="PhotArt logo" width={150} height={96}/>
             </div>
             <div className="w-[40px] h-[40px] bg-black absolute right-4 cursor-pointer" onClick={() => handleCloseModal()}>
-             <GoX className="w-full h-full"/>
+             <GoX className="w-full h-full text-white"/>
             </div>
           </div>
           <div className="flex justify-around items-center w-full h-[90%]">
