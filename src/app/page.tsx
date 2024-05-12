@@ -99,7 +99,7 @@ export default function Home() {
   return (
     <>
         <div className='flex flex-col overflow-hidden' id="home">
-          <div className="w-screen min-h-[85vh] relative bg-black flex flex-col justify-center items-center bg-fixed">
+          <div className="w-screen min-h-[85vh] cursor-pointer relative bg-black flex flex-col justify-center items-center bg-fixed">
             <div className={`w-[75%] h-[400px]  bg-${changePhotos[changeName]} bg-cover bg-no-repeat bg-center sm:h-[600px] 
             lg:bg-contain`} onClick={() => handlePhotoModal(4)}></div>
             <h1 className="absolute bottom-[-17px] text-white uppercase text-4xl font-bold">photart</h1>
@@ -118,10 +118,10 @@ export default function Home() {
           <div className="h-[600px] flex justify-between flex-col items-center bg-fixed lg:flex-row bg-black">
             <div className="flex justify-center items-center flex-col w-[375px] h-[400px] lg:w-[400px]">
               <div className="flex justify-end items-end w-full h-full">
-                <div className="w-[50%] h-[100%] bg-white bg-landscape-one bg-cover bg-no-repeat bg-center border-white hover:border-[1px]"
+                <div className="w-[50%] h-[100%] cursor-pointer bg-white bg-landscape-one bg-cover bg-no-repeat bg-center border-white hover:border-[1px]"
                   onClick={() => handlePhotoModal(1)}></div>
               </div>
-              <div className="flex justify-start items-start w-full h-full">
+              <div className="flex justify-start items-start w-full h-full cursor-pointer">
                 <video className="w-[50%] h-[100%] border-white hover:border-[1px]"
                   src="https://cdn.pixabay.com/video/2023/09/21/181537-866999852_tiny.mp4"
                   loop
@@ -134,12 +134,12 @@ export default function Home() {
             <h1 className="font-black text-6xl w-[320px] text-center text-white lg:text-6xl">{changeNames[changeName]}</h1>
     
             <div className="flex justify-center items-center flex-col w-[375px] h-[400px] lg:w-[400px]">
-              <div className="flex justify-start items-start w-full h-full">
+              <div className="flex justify-start items-start w-full h-full cursor-pointer">
                 <div className="w-[50%] h-[100%] bg-white bg-landscape-three bg-cover bg-no-repeat bg-center border-white hover:border-[1px]"
                   onClick={() => handlePhotoModal(3)}></div>
               </div>
               
-              <div className="flex justify-end items-end w-full h-full">
+              <div className="flex justify-end items-end w-full h-full cursor-pointer">
                 <div className="w-[50%] h-[100%] bg-white bg-landscape bg-cover bg-no-repeat bg-center border-white hover:border-[1px]"
                   onClick={() => handlePhotoModal(0)}></div>
               </div>
