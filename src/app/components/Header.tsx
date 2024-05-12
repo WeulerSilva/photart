@@ -24,7 +24,7 @@ export const Header = () => {
                 {!menuToggle && 
                     <>
                         <Image src={'/images/logo.png'} alt="PhotArt logo" width={150} height={96} className="ml-6 pt-2"/>
-                        <AiOutlineMenu className="w-14 h-24 mr-12 z-[2]" onClick={() => handleMenu()}/>
+                        <AiOutlineMenu className="w-14 h-24 mr-12 z-[2] text-white" onClick={() => handleMenu()}/>
                     </>
                 }
                 {menuToggle &&
@@ -39,7 +39,7 @@ export const Header = () => {
                                 <li className="hover:border-b-2 hover:border-white" onClick={() => handleClickLink("#partnerships")}>Parceiros</li>
                             </ul>
                         </div>
-                        <div className="text-6xl w-14 h-24 pt-12 mr-12" onClick={() => handleMenu()}>X</div>
+                        <div className="text-6xl w-14 h-24 pt-12 mr-12 text-white" onClick={() => handleMenu()}>X</div>
                     </>
                 }
             </header>
