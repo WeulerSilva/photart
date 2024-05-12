@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import 'animate.css/animate.min.css';
+import { GoChevronLeft, GoChevronRight, GoX } from "react-icons/go";
 import { ParallaxBanner, ParallaxBannerLayer, ParallaxProvider } from "react-scroll-parallax";
 import { ParallaxLoopSection } from "./components/ParallaxLoopSection";
 import { PhotoInLeft } from "./components/PhotoInLeft";
@@ -9,6 +10,7 @@ import { PhotoInParallax } from "./components/PhotoInParallax";
 import { SocialMidiaDivs } from "./components/SocialMidiaDivs";
 import { AboutUsDiv } from "./components/AboutUsDiv";
 import { PartnershipDivs } from "./components/PartnershipDivs";
+import Image from "next/image";
 
 
 
@@ -242,13 +244,19 @@ export default function Home() {
       {openModal &&
       <div className="fixed z-50 inset-0 overflow-hidden" id="contact">
         <div className={`w-screen h-screen bg-fixed animate__animated animate__backInLeft animate__fast bg-white relative z-[10]`}>
-          <div className="flex justify-between items-center w-full h-[10%]">
+          <div className="flex justify-center items-center w-full h-[10%]">
             <div></div>
-            <div className="w-[40px] h-[40px] bg-black"></div>
-            <div className="w-[40px] h-[40px] bg-black" onClick={() => handleCloseModal()}></div>
+            <div className="w-[40px] h-[40px] bg-black flex justify-center items-center">
+              <Image src={'/images/logo.png'} alt="PhotArt logo" width={150} height={96} className=""/>
+            </div>
+            <div className="w-[40px] h-[40px] bg-black absolute right-4" onClick={() => handleCloseModal()}>
+             <GoX className="w-full h-full"/>
+            </div>
           </div>
           <div className="flex justify-around items-center w-full h-[90%]">
-            <div className="w-[40px] h-[40px] bg-black" onClick={() => handleModalMinus()}></div>
+            <div className="w-[40px] h-[40px] bg-black cursor-pointer" onClick={() => handleModalMinus()}>
+              <GoChevronLeft className="w-full h-full text-white"/>
+            </div>
 
             {photoModal &&
               <div className={` w-[80%] h-[90%] bg-${changePhotoModal[currentPhoto || 0]} bg-cover bg-no-repeat bg-center`}></div>
@@ -257,7 +265,9 @@ export default function Home() {
               <div className={` w-[80%] h-[90%] bg-${changeLoopModal[currentPhoto || 0]} bg-cover bg-no-repeat bg-center`}></div>
             }
             
-            <div className="w-[40px] h-[40px] bg-black" onClick={(() => handleModalPlus())}></div>
+            <div className="w-[40px] h-[40px] bg-black cursor-pointer" onClick={(() => handleModalPlus())}>
+              <GoChevronRight className="w-full h-full text-white"/>
+            </div>
           </div>
         </div>
       </div>
