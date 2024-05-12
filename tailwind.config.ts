@@ -41,7 +41,13 @@ const config: Config = {
         'instagram' : 'url("https://cdn.pixabay.com/photo/2016/11/18/11/16/instagram-1834010_640.png")',
         'github' : 'url("https://cdn.pixabay.com/photo/2017/08/05/11/24/logo-2582757_1280.png")',
         'linkedin' : 'url("https://cdn.pixabay.com/photo/2016/11/18/11/16/social-1834011_640.png")',
-
+        "logo-one" : 'url("https://cdn.pixabay.com/photo/2022/10/23/03/49/horse-7540441_640.png")',
+        "logo-two" : 'url("https://cdn.pixabay.com/photo/2023/07/04/07/25/self-consciousness-8105584_640.jpg")',
+        "logo-three" : 'url("https://cdn.pixabay.com/photo/2016/12/27/13/10/logo-1933884_640.png")',
+        "logo-four" : 'url("https://cdn.pixabay.com/photo/2023/09/12/20/40/ai-generated-8249551_640.png")',
+        "logo-five" : 'url("https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_640.png")',
+        "logo-six" : 'url("https://cdn.pixabay.com/photo/2023/09/12/20/42/ai-generated-8249565_640.png")',
+        "logo-seven" : 'url("https://cdn.pixabay.com/photo/2017/06/10/12/46/bee-2389834_640.png")',
 
       },
       animation: {
@@ -49,6 +55,7 @@ const config: Config = {
         "loop-two" : 'loop-two 40s linear infinite',
         "loop-three" : 'loop-two 45s linear infinite',
         "loop-four" : 'loop-scroll 50s linear infinite',
+        "loop-logos" : 'loop-scroll-logo 40s linear infinite'
       },
       keyframes : {
         "loop-scroll" : {
@@ -59,6 +66,10 @@ const config: Config = {
           from : {transform : "translateY(-100%)"},
           to: {transform : "translateY(0%)"}
         },
+        "loop-scroll-logo" : {
+          from : {transform : "translateX(0)"},
+          to: {transform : "translateX(-100%)"}
+        }
       }
     },
   },

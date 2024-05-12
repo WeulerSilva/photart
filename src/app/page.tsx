@@ -7,6 +7,8 @@ import { ParallaxLoopSection } from "./components/ParallaxLoopSection";
 import { PhotoInLeft } from "./components/PhotoInLeft";
 import { PhotoInParallax } from "./components/PhotoInParallax";
 import { SocialMidiaDivs } from "./components/SocialMidiaDivs";
+import { AboutUsDiv } from "./components/AboutUsDiv";
+import { PartnershipDivs } from "./components/PartnershipDivs";
 
 
 
@@ -20,9 +22,9 @@ export default function Home() {
   const [openModal,setOpenModal] = useState<boolean>(false);
   const [currentPhoto,setCurrentPhoto] = useState<number | null>(null);
   const changeNames = ['Amigos', 'Paixão', 'Carisma', 'Amor', 'Beleza', 'Vida', 'Saúde', 'Bem-Estar', 'Familia', 'Natureza'];
-  const changePhotoModal = ['landscape', 'landscape-one', 'landscape-two', 'landscape-three'];
+  const changePhotoModal = ['landscape', 'landscape-one', 'landscape-two', 'landscape-three','photo-one', 'photo-two', 'photo-three'];
   const changeLoopModal = ['loop-one','loop-two','loop-three','loop-four','loop-five','loop-six','loop-seven','loop-eight','loop-nine','loop-ten'];
-  const changePhotos= ['woman', 'woman-two', 'smooke', 'photo-one', 'photo-two', 'photo-three', 'photo-lines'];
+  const changePhotos= ['photo-one', 'photo-two', 'photo-three','photo-one', 'photo-two', 'photo-three'];
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -43,7 +45,7 @@ export default function Home() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const referenceValue = 400;
     const referenceTwoValue = 4700;
-    const referenceThree = 5950;
+    const referenceThree = 7250;
     if (scrollTop > referenceValue) {
       setShowDivs(true);
     }
@@ -52,6 +54,7 @@ export default function Home() {
     }
     if(scrollTop > referenceThree) {
       setShowDivsThree(true);
+      console.log('foi')
     }
   };
 
@@ -93,9 +96,10 @@ export default function Home() {
 
   return (
     <>
-        <div className='flex flex-col overflow-hidden'>
+        <div className='flex flex-col overflow-hidden' id="home">
           <div className="w-screen min-h-[85vh] bg-black flex justify-center items-end bg-fixed">
-            <div className={`w-[75%] h-[400px]  bg-${changePhotos[changeName]} bg-cover bg-no-repeat bg-center`}></div>
+            <div className={`w-[75%] h-[400px]  bg-${changePhotos[changeName]} bg-cover bg-no-repeat bg-center sm:h-[600px] 
+            lg:bg-contain`} onClick={() => handlePhotoModal(4)}></div>
           </div>
     
           <div className="flex w-screen h-[50vh] bg-white justify-cente relative z-[2]">
@@ -209,7 +213,11 @@ export default function Home() {
 
         <ParallaxLoopSection  onNumberSelect={handleNumberSelect}/>
 
-        <div className="flex justify-start items-center w-screen h-[500px] bg-[#f6f4ef] flex-col">
+        <AboutUsDiv/>
+
+        <PartnershipDivs/>
+
+        <div className="flex justify-start items-center w-screen h-[500px] bg-[#f6f4ef] flex-col" id="contact">
             <h1 className="text-[#4b5563] text-3xl text-center mt-10 sm:text-5xl">Conheça Nossas Redes Socias<br/> ou <br/>Fale Conosco</h1>
 
             {showDivsThree &&
@@ -231,7 +239,7 @@ export default function Home() {
       </div>  
 
       {openModal &&
-      <div className="fixed z-50 inset-0 overflow-hidden">
+      <div className="fixed z-50 inset-0 overflow-hidden" id="contact">
         <div className={`w-screen h-screen bg-fixed animate__animated animate__backInLeft animate__fast bg-white relative z-[10]`}>
           <div className="flex justify-between items-center w-full h-[10%]">
             <div></div>
