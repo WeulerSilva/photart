@@ -210,9 +210,9 @@ export default function Home() {
           <div className="w-scrren h-[400px] bg-[#f6f4ef] flex justify-center items-center flex-col">
             {showDivsTwo &&
               <>
-                <h2 className="text-[#4b5563] text-2xl border-white border-b-4 animate__animated 
+                <h2 className="text-[#4b5563] text-2xl border-white border-b-4 font-semibold animate__animated 
                   animate__bounceInLeft md:text-5xl">Pq escolher a PHOTOART?</h2>
-                <h5 className="text-[#6b7280] text-2xl border-white border-b-4 md:text-3xl">Pq aqui temos</h5>
+                <h5 className="text-[#6b7280] text-2xl border-white border-b-4 font-medium md:text-3xl">Pq aqui temos</h5>
               </>
             }
             
