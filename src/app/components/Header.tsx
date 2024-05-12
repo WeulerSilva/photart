@@ -31,7 +31,7 @@ export const Header = () => {
                     <>
                         <Image src={'/images/logo.png'} alt="PhotArt logo" width={150} height={96} className="ml-6 pt-3"/>
                         <div className="absolute left-[25%] sm:relative sm:left-0">
-                            <ul className={`text-4xl flex flex-col h-screen justify-center space-y-10 pt-40 ${menuToggle ? 'animate__animated animate__tada' : 'animate-none'}
+                            <ul className={`text-4xl flex flex-col text-white h-screen justify-center space-y-10 pt-40 ${menuToggle ? 'animate__animated animate__tada' : 'animate-none'}
                             sm:text-8xl hover:animate-none`}>
                                 <li className="hover:border-b-2 hover:border-white" onClick={() => handleClickLink("#home")}>Inicio</li>
                                 <li className="hover:border-b-2 hover:border-white" onClick={() => handleClickLink("#contact")}>Contatos</li>

@@ -128,7 +128,7 @@ export default function Home() {
               </div>
             </div>
     
-            <h1 className="font-black text-6xl w-[320px] text-center lg:text-6xl">{changeNames[changeName]}</h1>
+            <h1 className="font-black text-6xl w-[320px] text-center text-white lg:text-6xl">{changeNames[changeName]}</h1>
     
             <div className="flex justify-center items-center flex-col w-[375px] h-[400px] lg:w-[400px]">
               <div className="flex justify-start items-start w-full h-full">
@@ -143,7 +143,7 @@ export default function Home() {
             </div>
           </div>
     
-          <div className="p-10 flex justify-center items-center flex-col">
+          <div className="p-10 flex justify-center items-center flex-col text-white">
             <h2 className="text-[45px] border-white border-b-2 mb-8 font-bold lg:text-8xl">PhotArt</h2>
             <p className="text-2xl text-center">Nos capturando momentos únicos e transformando-os em memórias eternas. Na nossa agência de fotografia, cada clique conta uma história e cada imagem transmite emoção. De retratos a paisagens, estamos aqui para revelar a beleza do mundo através das lentes. Deixe-nos contar a sua história através da magia da fotografia.</p>
           </div>
@@ -233,7 +233,7 @@ export default function Home() {
         </div>
           
           <div className="w-screen h-10 bg-gray-700">
-            <h1 className="text-center mt-5">I´m Weuler Silva and I Made This WebSite...</h1>
+            <h1 className="text-center mt-5 text-white">I´m Weuler Silva and I Made This WebSite...</h1>
           </div>
 
       </div>  
