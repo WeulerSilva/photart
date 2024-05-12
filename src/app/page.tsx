@@ -26,7 +26,7 @@ export default function Home() {
   const changeNames = ['Amigos', 'Paixão', 'Carisma', 'Amor', 'Beleza', 'Vida', 'Saúde', 'Bem-Estar', 'Familia', 'Natureza'];
   const changePhotoModal = ['landscape', 'landscape-one', 'landscape-two', 'landscape-three','photo-one', 'photo-two', 'photo-three'];
   const changeLoopModal = ['loop-one','loop-two','loop-three','loop-four','loop-five','loop-six','loop-seven','loop-eight','loop-nine','loop-ten'];
-  const changePhotos= ['photo-one', 'photo-two', 'photo-three','photo-one', 'photo-two', 'photo-three'];
+  const changePhotos= ['photo-one', 'photo-two', 'photo-three','photo-one', 'photo-two', 'photo-three','photo-one','photo-one'];
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
