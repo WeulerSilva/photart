@@ -251,9 +251,9 @@ export default function Home() {
           <div className="flex justify-center items-center w-full h-[10%]">
             <div></div>
             <div className="w-[40px] h-[40px] bg-black flex justify-center items-center">
-              <Image src={'/images/logo.png'} alt="PhotArt logo" width={150} height={96} className=""/>
+              <Image src={'/images/logo.png'} alt="PhotArt logo" width={150} height={96}/>
             </div>
-            <div className="w-[40px] h-[40px] bg-black absolute right-4" onClick={() => handleCloseModal()}>
+            <div className="w-[40px] h-[40px] bg-black absolute right-4 cursor-pointer" onClick={() => handleCloseModal()}>
              <GoX className="w-full h-full"/>
             </div>
           </div>
