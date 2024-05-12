@@ -96,6 +96,10 @@ export default function Home() {
     }
   }
 
+  const handlePortifolioLink = () => {
+    window.open("https://portifolio-red-chi.vercel.app", "_blank");
+  };
+
   return (
     <>
         <div className='flex flex-col overflow-hidden' id="home">
@@ -221,7 +225,7 @@ export default function Home() {
         <PartnershipDivs/>
 
         <div className="flex justify-start items-center w-screen h-[500px] bg-[#f6f4ef] flex-col" id="contact">
-            <h1 className="text-[#4b5563] text-3xl text-center mt-10 sm:text-5xl">Conheça Nossas Redes Socias<br/> ou <br/>Fale Conosco</h1>
+            <h1 className="text-[#4b5563] text-3xl text-center font-semibold mt-10 sm:text-5xl">Conheça Nossas Redes Socias<br/> ou <br/>Fale Conosco</h1>
 
             {showDivsThree &&
               <div className="grid grid-cols-2 place-items-center mt-10 w-screen h-[400px] sm:flex sm:justify-around sm:items-center animate__animated animate__backInLeft">
@@ -235,8 +239,8 @@ export default function Home() {
               }
         </div>
           
-          <div className="w-screen h-10 bg-gray-700">
-            <h1 className="text-center mt-5 text-white">I´m Weuler Silva and I Made This WebSite...</h1>
+          <div className="w-screen h-10 bg-gray-700 cursor-pointer" onClick={() => handlePortifolioLink()}>
+            <h1 className="text-center mt-5 text-white">Eu sou Weuler Silva o criador desse site...</h1>
           </div>
 
       </div>  

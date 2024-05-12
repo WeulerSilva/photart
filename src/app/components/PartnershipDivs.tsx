@@ -13,7 +13,7 @@ export const PartnershipDivs = () => {
                     <PartnershipLogo color="bg-red-500" image="bg-logo-two" text="Natur Corp."/>
                     <PartnershipLogo color="bg-blue-500" image="bg-logo-three" text="Vida Animal"/>
                     <PartnershipLogo color="bg-yellow-500" image="bg-logo-four" text="Motor Sul"/>
-                    <PartnershipLogo color="bg-orange-500" image="bg-logo-five" text="45D Compp."/>
+                    <PartnershipLogo color="bg-orange-500" image="bg-logo-five" text="45D Comp."/>
                     <PartnershipLogo color="bg-pink-500" image="bg-logo-six" text="Tur Passion"/>
                     <PartnershipLogo color="bg-lime-500" image="bg-logo-seven" text="Bee Logo"/>
                 </div>
